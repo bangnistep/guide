@@ -1,5 +1,5 @@
-
-<!DOCTYPE html><!--STATUS OK-->
+<!DOCTYPE html>
+<!--STATUS OK-->
 <!--啊哈哈哈哈哈哈哈哈哈哈哈哈-->
 <!--这Html也太难调试了吧-->
 <!--终于写了一版能看的-->
@@ -204,348 +204,354 @@
 <head>
 
     <style>
-        body{background-image:url("http://pic1.win4000.com/wallpaper/b/59ae71419cae2.jpg");
-        no-repeat; background-size:100% 100%; background-attachment:fixed;}
-	</style>
-	
-	<style>
-      .toast-center-center {
-		    top: 50%;
-		    left: 50%;
-		    margin-top: -25px;
-		   margin-left: -150px;
-		 }
-	</style>
+        body {
+            background-image: url("http://pic1.win4000.com/wallpaper/b/59ae71419cae2.jpg");
+            no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
 
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.js"  
-integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  
-crossorigin="anonymous"></script>
- <!--   <style>
+    <style>
+        .toast-center-center {
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -150px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!--   <style>
         body{background-image:url("./bg/kng.jpg");
         no-repeat; background-size:100% 100%; background-attachment:fixed;}
     </style>
 	-->
     <script language="javascript">
-    function searchForResults(){
-		var bHead="https://www.baidu.com/s?wd=";
-		var gHead="https://www.google.com/search?q=";
-		var text;
-		if(document.getElementById("searchSelect").value=="baidu")
-		{
-			text=bHead.concat(document.getElementById("search").value);
-		}
-		else if(document.getElementById("searchSelect").value=="google")
-		{
-		text=gHead.concat(document.getElementById("search").value);
-		}
-		
-		window.open(text,"_blank");
-		}
-    
-	</script>
+        function searchForResults() {
+            var bHead = "https://www.baidu.com/s?wd=";
+            var gHead = "https://www.google.com/search?q=";
+            var text;
+            if (document.getElementById("searchSelect").value == "baidu") {
+                text = bHead.concat(document.getElementById("search").value);
+            } else if (document.getElementById("searchSelect").value == "google") {
+                text = gHead.concat(document.getElementById("search").value);
+            }
 
-	
-
-	<script language="javascript" type="text/javascript">  
-	function Timer(year,month,day,hour,minute,second){ 
-	  var leftTime = (new Date(year,month,day+1,hour,minute,second)) - (new Date()); //计算剩余的毫秒数 
-	  var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数 
-	  var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时 
-	  var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟 
-	  var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数 
-	  days = checkTime(days); 
-	  hours = checkTime(hours); 
-	  minutes = checkTime(minutes); 
-	  seconds = checkTime(seconds); 
-	  setInterval("Timer(2019,00,00,00,00,00)",1000); 
-	 // console.log(days);
-	  if (isNaN(days)) { }
-	  else{
-	   
-		 document.getElementById("timer").innerHTML = days+"天" + hours+"小时" + minutes+"分"+seconds+"秒"; 
-	  }
-	  
-	} 
-	function checkTime(i){ //将0-9的数字前面加上0，例1变为01 
-	  if(i<10) 
-	  { 
-		i = "0" + i; 
-	  } 
-	  return i; 
-	} 
-	  
-	</script>
-<script language="javascript">
-    function clsSearch(){
-		document.getElementById("search").value="";
-    }
-
-	function IDChangeFormat()
-	{
-		var string = document.getElementById("IDFormatInput").value;
- 
-		//替换所有的换行符
-		string = string.replace(/\r\n/g,",")
-		string = string.replace(/\n/g,",");
-		
-		//替换所有的空格（中文空格、英文空格都会被替换）
-		string = string.replace(/\s/g,"");
-		while(string.charAt(string.length-1)==','){
-		
-				string=string.substr(0,string.length-1);
-		
-		}
-		
-		//输出转换后的字符串
-		console.log(string);
-
-		document.getElementById("IDFormatInput").value = string;
-		window.clipboardData.setData("Text",string);
-		toastr.success('转换成功，按Ctrl+C复制');
-	}
-
-	function IDFormatReset()
-	{
-		document.getElementById("IDFormatInput").value="";
-	}
-
-	function initialData()
-	{
-		Timer();
-		getWeek();
-		$("#mymodal").modal();
-	}
-
-	function getWeek()
-	{
-		var d = new Date().getDay();
-		var data = [{'0':'周日'},{'1':'周一'},{'2':'周二'},{'3':'周三'},{'4':'周四'},{'5':'周五'},{'6':'周六'}];
-		for(var i = 0;i<data.length;i++){
-			for(var x in data[i]){
-				if(d == i){
-					switch (data[i][x]) {
-						case '周一':
-							document.getElementById("picWeek").src="./pic/1.jpg";
-							break;
-						case '周二':
-						document.getElementById("picWeek").src="./pic/2.jpg";
-							break;
-						case '周三':
-						document.getElementById("picWeek").src="./pic/3.jpg";
-							break;
-						case '周四':
-						document.getElementById("picWeek").src="./pic/4.jpg";
-							break;
-						case '周五':
-						document.getElementById("picWeek").src="./pic/5.jpg";
-							break;
-						default:
-						document.getElementById("picWeek").src="./pic/67.jpg";
-							break;
-					}
-					
-				}
-	
-			}
-		}
-	}
-
+            window.open(text, "_blank");
+        }
     </script>
-	<script type="text/javascript">
-	 toastr.options.positionClass = 'toast-center-center';
-	
-	</script>
-	<link rel="stylesheet" type="text/css" href="https://www.bootcss.com/p/buttons/css/buttons.css">
-
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 
-<title>导航 - Bangni Shopify</title></head>
+
+    <script language="javascript" type="text/javascript">
+        function Timer(year, month, day, hour, minute, second) {
+            var leftTime = (new Date(year, month, day + 1, hour, minute, second)) - (new Date()); //计算剩余的毫秒数 
+            var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数 
+            var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时 
+            var minutes = parseInt(leftTime / 1000 / 60 % 60, 10); //计算剩余的分钟 
+            var seconds = parseInt(leftTime / 1000 % 60, 10); //计算剩余的秒数 
+            days = checkTime(days);
+            hours = checkTime(hours);
+            minutes = checkTime(minutes);
+            seconds = checkTime(seconds);
+            setInterval("Timer(2019,00,00,00,00,00)", 1000);
+            // console.log(days);
+            if (isNaN(days)) {} else {
+
+                document.getElementById("timer").innerHTML = days + "天" + hours + "小时" + minutes + "分" + seconds + "秒";
+            }
+
+        }
+
+        function checkTime(i) { //将0-9的数字前面加上0，例1变为01 
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+    <script language="javascript">
+        function clsSearch() {
+            document.getElementById("search").value = "";
+        }
+
+        function IDChangeFormat() {
+            var string = document.getElementById("IDFormatInput").value;
+
+            //替换所有的换行符
+            string = string.replace(/\r\n/g, ",")
+            string = string.replace(/\n/g, ",");
+
+            //替换所有的空格（中文空格、英文空格都会被替换）
+            string = string.replace(/\s/g, "");
+            while (string.charAt(string.length - 1) == ',') {
+
+                string = string.substr(0, string.length - 1);
+
+            }
+
+            //输出转换后的字符串
+            console.log(string);
+
+            document.getElementById("IDFormatInput").value = string;
+            window.clipboardData.setData("Text", string);
+            toastr.success('转换成功，按Ctrl+C复制');
+        }
+
+        function IDFormatReset() {
+            document.getElementById("IDFormatInput").value = "";
+        }
+
+        function initialData() {
+            Timer();
+            getWeek();
+            $("#mymodal").modal();
+        }
+
+        function getWeek() {
+            var d = new Date().getDay();
+            var data = [{
+                '0': '周日'
+            }, {
+                '1': '周一'
+            }, {
+                '2': '周二'
+            }, {
+                '3': '周三'
+            }, {
+                '4': '周四'
+            }, {
+                '5': '周五'
+            }, {
+                '6': '周六'
+            }];
+            for (var i = 0; i < data.length; i++) {
+                for (var x in data[i]) {
+                    if (d == i) {
+                        switch (data[i][x]) {
+                            case '周一':
+                                document.getElementById("picWeek").src = "./pic/1.jpg";
+                                break;
+                            case '周二':
+                                document.getElementById("picWeek").src = "./pic/2.jpg";
+                                break;
+                            case '周三':
+                                document.getElementById("picWeek").src = "./pic/3.jpg";
+                                break;
+                            case '周四':
+                                document.getElementById("picWeek").src = "./pic/4.jpg";
+                                break;
+                            case '周五':
+                                document.getElementById("picWeek").src = "./pic/5.jpg";
+                                break;
+                            default:
+                                document.getElementById("picWeek").src = "./pic/67.jpg";
+                                break;
+                        }
+
+                    }
+
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        toastr.options.positionClass = 'toast-center-center';
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://www.bootcss.com/p/buttons/css/buttons.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 
-<body onload=initialData()></body>
-<div id="MainBody" class="container-fluid">
+    <title>导航 - Bangni Shopify</title>
+</head>
 
-<!-- <div id="titleMain" style="height: auto;width:max-content;" class="col-md-4">
+
+<body onload=initialData()>
+    <div id="MainBody" class="container-fluid">
+
+        <!-- <div id="titleMain" style="height: auto;width:max-content;" class="col-md-4">
     <h1 color="white" style="height:80px; font-size: 45px;text-align: left; text-rendering: auto;">PK2 导航主页</h1>
 	
 </div>
 -->
-<form class="form-inline">
-<div id="searchPart" style="color:white; padding-top:25px" class="col-sm-12 form-group">
-	<div id="mainsearch" class="col-xs-4 col-sm-8">
-		<input id="search" style="height:40px; font-size: 25px;vertical-align:top;color:black " class="form-control" placeholder="搜点儿什么吧~">
-		<select id="searchSelect" style="height:40px; font-size:20px;color:black; vertical-align:top" class="form-control">
+        <form class="form-inline">
+            <div id="searchPart" style="color:white; padding-top:25px" class="col-sm-12 form-group">
+                <div id="mainsearch" class="col-xs-4 col-sm-8">
+                    <input id="search" style="height:40px; font-size: 25px;vertical-align:top;color:black " class="form-control" placeholder="搜点儿什么吧~">
+                    <select id="searchSelect" style="height:40px; font-size:20px;color:black; vertical-align:top" class="form-control">
 		<option value="baidu">百度</option>
 		<option value="google">Google</option>
 		</select>
-		<button id="goSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="searchForResults()" class="btn btn-success">搜索</button>
-		<button type="button" id="clearSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="clsSearch()" class="btn btn-danger">重置</button>
-	</div>
+                    <button id="goSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="searchForResults()" class="btn btn-success">搜索</button>
+                    <button type="button" id="clearSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="clsSearch()" class="btn btn-danger">重置</button>
+                </div>
 
-	<div id="weather" class="col-xs-1 col-sm-3" style="align-content: space-around;">
-		<a href="#"><iframe width="420" scrolling="no" height="45" frameborder="0" allowtransparency="true" src="https://i.tianqi.com?c=code&id=12&icon=4&py=xinxiang&num=2&site=12"></iframe></a>
-	</div>
-
-
-	<div id="pic" class="col-xs-4 col-sm-1" style="vertical-align:top;align-content: space-around;">
-		<img id="picWeek" src="" class="img-rounded" style="width:100px; height: 95px;">
-	</div>
+                <div id="weather" class="col-xs-1 col-sm-3" style="align-content: space-around;">
+                    <a href="#"><iframe width="420" scrolling="no" height="45" frameborder="0" allowtransparency="true" src="https://i.tianqi.com?c=code&id=12&icon=4&py=xinxiang&num=2&site=12"></iframe></a>
+                </div>
 
 
-</div>
-</form>
-<div id="GMJump" style="padding-left:20px" class="col-sm-9">
-<div class="col-xs-8 col-sm-3">
-<p style="padding-top:40px">
-	<a href="https://business.facebook.com/adsmanager/manage" target="_blank"> 
-        <button id="mgmain" class="btn btn-primary" style="height:40px;width:203px;">FB 广告管理工具
+                <div id="pic" class="col-xs-4 col-sm-1" style="vertical-align:top;align-content: space-around;">
+                    <img id="picWeek" src="" class="img-rounded" style="width:100px; height: 95px;">
+                </div>
+
+
+            </div>
+        </form>
+        <div id="GMJump" style="padding-left:20px" class="col-sm-9">
+            <div class="col-xs-8 col-sm-3">
+                <p style="padding-top:40px">
+                    <a href="https://business.facebook.com/adsmanager/manage" target="_blank">
+                        <button id="mgmain" class="btn btn-primary" style="height:40px;width:203px;">FB 广告管理工具
         </button>
-    </a> 
-</p>
-<p>
-	<a href="https://business.facebook.com/settings" target="_blank"> 
-        <button id="main" class="btn btn-primary" style="height:40px;width:203px;">FB 商务管理平台设置
+                    </a>
+                </p>
+                <p>
+                    <a href="https://business.facebook.com/settings" target="_blank">
+                        <button id="main" class="btn btn-primary" style="height:40px;width:203px;">FB 商务管理平台设置
         </button>
-    </a>
-</p>
-<p>
-    <a href="https://business.facebook.com/accountquality" target="_blank"> 
-        <button id="seaBg" class="btn btn-normal" style="height:40px;width:100px;">FB账户品质
+                    </a>
+                </p>
+                <p>
+                    <a href="https://business.facebook.com/accountquality" target="_blank">
+                        <button id="seaBg" class="btn btn-normal" style="height:40px;width:100px;">FB账户品质
       </button>
-    </a>
-    <a href="https://bangnistep.myshopify.com/admin" target="_blank"> 
-        <button id="naBg" class="btn btn-normal" style="height:40px;width:100px;">Shopify后台
+                    </a>
+                    <a href="https://bangnistep.myshopify.com/admin" target="_blank">
+                        <button id="naBg" class="btn btn-normal" style="height:40px;width:100px;">Shopify后台
         </button>
-    </a>
-</p>
-<p style="">
-    <a href="https://bangnistep.com/" target="_blank"> 
-        <button id="euBg" class="btn btn-normal" style="height:40px;width:100px;">商城主页
+                    </a>
+                </p>
+                <p style="">
+                    <a href="https://bangnistep.com/" target="_blank">
+                        <button id="euBg" class="btn btn-normal" style="height:40px;width:100px;">商城主页
         </button>
-    </a>
-    <a href="https://bangnistep.myshopify.com/admin/orders?selectedView=all" target="_blank"> 
-        <button id="chinaBg" class="btn btn-normal" style="height:40px;width:100px;">订单查看
+                    </a>
+                    <a href="https://bangnistep.myshopify.com/admin/orders?selectedView=all" target="_blank">
+                        <button id="chinaBg" class="btn btn-normal" style="height:40px;width:100px;">订单查看
         </button>
-    </a>
-</p>
- 
-</div>
-	<div class="col-xs-4 col-sm-3">
-	<p style="padding-top:40px;">
-		<a href="https://pk2.worktile.com/mission/projects/5f0bd6b692034529c4d8b028" target="_blank"> 
-		<button id="WTBg" class="btn btn-primary" style="height:40px;width:200px;">Worktile
-		</button>
-	</a>
-	</p>
-	<p>
-		<a href="http://172.16.0.88/zentao/index.php?m=my&f=index" target="_blank"> 
-		<button id="ZTBg" class="btn btn-primary" style="height:40px;width:200px;">禅道
-		</button>
-	</a>
-	</p>
+                    </a>
+                </p>
 
-	<p>
-		<a href="https://docs.qq.com/desktop" target="_blank"> 
-		<button id="txDoc" class="btn btn-primary" style="height:40px;width:200px;">腾讯文档
+            </div>
+            <div class="col-xs-4 col-sm-3">
+                <p style="padding-top:40px;">
+                    <a href="https://pk2.worktile.com/mission/projects/5f0bd6b692034529c4d8b028" target="_blank">
+                        <button id="WTBg" class="btn btn-primary" style="height:40px;width:200px;">Worktile
 		</button>
-	</a>
-	</p>
-
-	<p>
-		<a href="https://www.facebook.com/pages/?category=your_pages&ref=www_chatbar" target="_blank"> 
-		<button id="fbHP" class="btn btn-primary" style="height:40px;width:200px;">Facebook主页
+                    </a>
+                </p>
+                <p>
+                    <a href="http://172.16.0.88/zentao/index.php?m=my&f=index" target="_blank">
+                        <button id="ZTBg" class="btn btn-primary" style="height:40px;width:200px;">禅道
 		</button>
-	</a>
-	</p>
-	
+                    </a>
+                </p>
 
-	</div>
-	
-	<div id="tools" class="col-xs-4 col-sm-3">
-		<p style="padding-top:40px;">
-			<a href="https://lab.magiconch.com/nbnhhsh/" target="_blank"> 
-			<button id="wordsCheck" class="btn btn-primary" style="height:40px;width:200px;">缩写查询
+                <p>
+                    <a href="https://docs.qq.com/desktop" target="_blank">
+                        <button id="txDoc" class="btn btn-primary" style="height:40px;width:200px;">腾讯文档
+		</button>
+                    </a>
+                </p>
+
+                <p>
+                    <a href="https://www.facebook.com/pages/?category=your_pages&ref=www_chatbar" target="_blank">
+                        <button id="fbHP" class="btn btn-primary" style="height:40px;width:200px;">Facebook主页
+		</button>
+                    </a>
+                </p>
+
+
+            </div>
+
+            <div id="tools" class="col-xs-4 col-sm-3">
+                <p style="padding-top:40px;">
+                    <a href="https://lab.magiconch.com/nbnhhsh/" target="_blank">
+                        <button id="wordsCheck" class="btn btn-primary" style="height:40px;width:200px;">缩写查询
 			</button>
-		</a>
-		</p>
+                    </a>
+                </p>
 
-		<p>
-			<a href="https://fast.com/" target="_blank"> 
-			<button id="speedtest" class="btn btn-primary" style="height:40px;width:200px;">网速咋样
+                <p>
+                    <a href="https://fast.com/" target="_blank">
+                        <button id="speedtest" class="btn btn-primary" style="height:40px;width:200px;">网速咋样
 			</button>
-		</a>
-		</p>
+                    </a>
+                </p>
 
-		<p>
-			<a href="https://jinaconvert.com/cn/" target="_blank"> 
-			<button id="picChange" class="btn btn-primary" style="height:40px;width:100px;">图片转换
+                <p>
+                    <a href="https://jinaconvert.com/cn/" target="_blank">
+                        <button id="picChange" class="btn btn-primary" style="height:40px;width:100px;">图片转换
 			</button>
-			</a>
+                    </a>
 
-			<a href="https://www.picdiet.com/zh-cn" target="_blank"> 
-				<button id="picPress" class="btn btn-primary" style="height:40px;width:100px;">图片压缩
+                    <a href="https://www.picdiet.com/zh-cn" target="_blank">
+                        <button id="picPress" class="btn btn-primary" style="height:40px;width:100px;">图片压缩
 				</button>
-				</a>
-		</p>
+                    </a>
+                </p>
 
-		
-		<p>
-			<a href="https://translate.google.cn/" target="_blank"> 
-			<button id="translate" class="btn btn-primary" style="height:40px;width:200px;">谷歌翻译
+
+                <p>
+                    <a href="https://translate.google.cn/" target="_blank">
+                        <button id="translate" class="btn btn-primary" style="height:40px;width:200px;">谷歌翻译
 			</button>
-		</a>
-		</p>
+                    </a>
+                </p>
 
-		<!-- <p>
+                <!-- <p>
 			<a href="https://juejin.im/pins/topic/6824710203301167112" target="_blank"> 
 			<button id="jjBg" class="btn btn-primary" style="height:40px;width:200px;">用爱发电
 			</button>
 		</a>
 		</p> -->
 
-	</div>
+            </div>
 
-</div>
-
-
-<div id="Website" style="padding-left:20px" class="col-sm-9">
-
-	<div class="col-xs-8 col-sm-3">
-	<!--	<p style="font-size: 25px; text-align-last: center;">功能</p>-->
-<!-- data-target触发模态弹出窗元素 -->
-<button class="btn btn-primary" data-toggle="modal" data-target="#id-format" type="button" style="height:40px;width:203px;" >订单ID逗号分隔</button>
-<!-- 模态弹出窗内容 -->
-<div class="modal" id="id-format" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
- <div class="modal-dialog">
- <div class="modal-content">
- <div class="modal-header">
- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
- <h4 class="modal-title">ID转换</h4>
- </div>
- <div class="modal-body">
-<form>
-	<div class="form-group">
-		<textarea id="IDFormatInput" class="form-control" rows="6" style="resize:vertical;"></textarea>
-	</div>
-	<div class="form-group" align="right">
-		<button type="button" class="btn btn-success" id="idChange" onclick="IDChangeFormat()">转换</button>
-		<button type="button" class="btn btn-danger" id="idClear" onclick="IDFormatReset()">重置</button>
-	</div>
-</form>
- </div>
- <div class="modal-footer">
- <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
- </div>
-</div>
- </div>
- </div>
-</div>
+        </div>
 
 
+        <div id="Website" style="padding-left:20px" class="col-sm-9">
+
+            <div class="col-xs-8 col-sm-3">
+                <!--	<p style="font-size: 25px; text-align-last: center;">功能</p>-->
+                <!-- data-target触发模态弹出窗元素 -->
+                <button class="btn btn-primary" data-toggle="modal" data-target="#id-format" type="button" style="height:40px;width:203px;">订单ID逗号分隔</button>
+                <!-- 模态弹出窗内容 -->
+                <div class="modal" id="id-format" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">ID转换</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <textarea id="IDFormatInput" class="form-control" rows="6" style="resize:vertical;"></textarea>
+                                    </div>
+                                    <div class="form-group" align="right">
+                                        <button type="button" class="btn btn-success" id="idChange" onclick="IDChangeFormat()">转换</button>
+                                        <button type="button" class="btn btn-danger" id="idClear" onclick="IDFormatReset()">重置</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
+
 </html>
