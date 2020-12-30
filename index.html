@@ -231,10 +231,22 @@
         function searchForResults() {
             var bHead = "https://www.baidu.com/s?wd=";
             var gHead = "https://www.google.com/search?q=";
+            var yahooAR = "https://espanol.search.yahoo.com/search?p=";
+            var yahooCA = "https://ca.search.yahoo.com/search?p=";
+            var yahooBR = "https://br.search.yahoo.com/search?p=";
+            var yahooID = "https://id.search.yahoo.com/search?p=";
+            var yahooHK = "https://hk.search.yahoo.com/search?p=";
+            var yahooMY = "https://malaysia.search.yahoo.com/search?p=";
+            var yahooGR = "https://gr.search.yahoo.com/search?p=";
+            var yahooMX = "https://espanol.search.yahoo.com/search?p=";
+            var yahooVN = "https://vn.search.yahoo.com/search?p=";
+
             var text;
             if (document.getElementById("searchSelect").value == "baidu") {
                 text = bHead.concat(document.getElementById("search").value);
             } else if (document.getElementById("searchSelect").value == "google") {
+                text = gHead.concat(document.getElementById("search").value);
+            } else {
                 text = gHead.concat(document.getElementById("search").value);
             }
 
@@ -385,7 +397,17 @@
                     <input id="search" style="height:40px; font-size: 25px;vertical-align:top;color:black " class="form-control" placeholder="搜点儿什么吧~">
                     <select id="searchSelect" style="height:40px; font-size:20px;color:black; vertical-align:top" class="form-control">
 		<option value="baidu">百度</option>
-		<option value="google">Google</option>
+        <option value="google">Google</option>
+        <option value="yahooAR">阿根廷雅虎</option>
+        <option value="yahooCA">加拿大雅虎</option>
+        <option value="yahooBR">巴西雅虎</option>
+        <option value="yahooID">印尼雅虎</option>
+        <option value="yahooHK">香港雅虎</option>
+        <option value="yahooMY">马来西亚雅虎</option>
+        <option value="yahooGR">希腊雅虎</option>
+        <option value="yahooMX">墨西哥雅虎</option>
+        <option value="yahooVN">越南雅虎</option>
+
 		</select>
                     <button id="goSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="searchForResults()" class="btn btn-success">搜索</button>
                     <button type="button" id="clearSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="clsSearch()" class="btn btn-danger">重置</button>
