@@ -243,12 +243,48 @@
             var yahooJP = "https://search.yahoo.co.jp/search?p=";
 
             var text;
-            if (document.getElementById("searchSelect").value == "baidu") {
-                text = bHead.concat(document.getElementById("search").value);
-            } else if (document.getElementById("searchSelect").value == "google") {
-                text = gHead.concat(document.getElementById("search").value);
-            } else {
-                text = gHead.concat(document.getElementById("search").value);
+            // if (document.getElementById("searchSelect").value == "baidu") {
+            //     text = bHead.concat(document.getElementById("search").value);
+            // } else if (document.getElementById("searchSelect").value == "google") {
+            //     text = gHead.concat(document.getElementById("search").value);
+            // }
+            switch (document.getElementById("searchSelect").value) {
+                case "baidu":
+                    text = bHead.concat(document.getElementById("search").value);
+                    break;
+                case "google":
+                    text = gHead.concat(document.getElementById("search").value);
+                    break;
+                case "阿根廷雅虎":
+                    text = yahooAR.concat(document.getElementById("search").value);
+                    break;
+                case "加拿大雅虎":
+                    text = yahooCA.concat(document.getElementById("search").value);
+                    break;
+                case "巴西雅虎":
+                    text = yahooBR.concat(document.getElementById("search").value);
+                    break;
+                case "印尼雅虎":
+                    text = yahooID.concat(document.getElementById("search").value);
+                    break;
+                case "香港雅虎":
+                    text = yahooHK.concat(document.getElementById("search").value);
+                    break;
+                case "马来西亚雅虎":
+                    text = yahooMY.concat(document.getElementById("search").value);
+                    break;
+                case "希腊雅虎":
+                    text = yahooGR.concat(document.getElementById("search").value);
+                    break;
+                case "墨西哥雅虎":
+                    text = yahooMX.concat(document.getElementById("search").value);
+                    break;
+                case "越南雅虎":
+                    text = yahooVN.concat(document.getElementById("search").value);
+                    break;
+                case "日本雅虎":
+                    text = yahooJP.concat(document.getElementById("search").value);
+                    break;
             }
 
             window.open(text, "_blank");
