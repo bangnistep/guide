@@ -344,8 +344,7 @@
             console.log(string);
 
             document.getElementById("IDFormatInput").value = string;
-            window.clipboardData.setData("Text", string);
-            toastr.success('转换成功，按Ctrl+C复制');
+            toastr.success('转换成功，请手动复制');
         }
 
         function TrackChangeFormat() {
@@ -365,6 +364,8 @@
 
             //输出转换后的字符串
             console.log(string);
+
+
 
             document.getElementById("IDTrackInput").value = string;
             string = "https://www.trackdog.com/track.htm?tn=" + string;
