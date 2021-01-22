@@ -374,6 +374,27 @@
             TrackFormatReset();
         }
 
+        function CalPrice() {
+            var SoldPrice = 0.00;
+            var string = document.getElementById("IDFormatInput").value;
+
+            if (document.getElementById("ProfitType").value == "占售价") {
+
+                SoldPrice = (Number(document.getElementById("BasePrice").value) +
+                    Number(document.getElementById("StoragePrice").value) +
+                    Number(document.getElementById("DeliPrice").value) +
+                    Number(document.getElementById("AdsPrice").value) +
+                    Number(document.getElementById("ExtraPrice").value)) / (Number((document.getElementById("DiscountPrice").value) / 10) - (Number(document.getElementById("ProfitPrice").value) / 100));
+            } else {
+
+
+            }
+            alert(SoldPrice.toFixed(2));
+
+        }
+
+
+
         function IDFormatReset() {
             document.getElementById("IDFormatInput").value = "";
         }
@@ -735,29 +756,30 @@
                             </div>
                             <div class="modal-body">
                                 <form>
-                                    <div class="form-group">
-                                        <div>
-                                            <p>成本价：</p>
+                                    <div class="form-group" style="display: inline-block;">
+                                        <div style="display: inline;">
+                                            <p>成本价(¥)：</p>
                                             <textarea id="BasePrice" class="form-control" rows="1" style="resize:none;"></textarea>
                                         </div>
-                                        <div>
-                                            <p>仓库成本：</p>
+                                        <br>
+                                        <div style="display:inline;">
+                                            <p>仓库成本(¥)：</p>
                                             <textarea id="StoragePrice" class="form-control" rows="1" style="resize:none;">1.5</textarea>
                                         </div>
-                                        <div>
-                                            <p>物流：</p>
-                                            <textarea id="StoragePrice" class="form-control" rows="1" style="resize:none;">45</textarea>
+                                        <div style="display: inline;">
+                                            <p>物流(¥)：</p>
+                                            <textarea id="DeliPrice" class="form-control" rows="1" style="resize:none;">45</textarea>
                                         </div>
-                                        <div>
-                                            <p>广告：</p>
+                                        <div style="display: inline;">
+                                            <p>广告(¥)：</p>
                                             <textarea id="AdsPrice" class="form-control" rows="1" style="resize:none;">70</textarea>
                                         </div>
-                                        <div>
+                                        <div style="display: inline;">
                                             <p>手续费%：</p>
                                             <textarea id="ExtraPrice" class="form-control" rows="1" style="resize:none;">0</textarea>
                                         </div>
-                                        <div>
-                                            <div style="display:inline-flex;">
+                                        <div style="display: inline-block;">
+                                            <div style="display:inline;">
                                                 <p>利润%：</p>
                                                 <select id="ProfitType">
                                                 <option id="Price">占售价</option>
@@ -766,11 +788,19 @@
                                             </div>
                                             <textarea id="ProfitPrice" class="form-control" rows="1" style="resize:none;" value="70"></textarea>
                                         </div>
+                                        <div style="display: inline;">
+                                            <p>折扣(七五折请输入7.5）：</p>
+                                            <textarea id="DiscountPrice" class="form-control" rows="1" style="resize:none;">10</textarea>
+                                        </div>
+                                        <div style="display:inline;">
+                                            <p>汇率：</p>
+                                            <textarea id="CurrencyPrice" class="form-control" rows="1" style="resize:none;">7</textarea>
+                                        </div>
 
                                     </div>
                                     <div class="form-group" align="right">
-                                        <button type="button" class="btn btn-success" id="idChange" onclick="TrackChangeFormat()">查询</button>
-                                        <button type="button" class="btn btn-danger" id="idClear" onclick="TrackFormatReset()">重置</button>
+                                        <button type="button" class="btn btn-success" id="idChange" onclick="CalPrice()">计算结果</button>
+                                        <button type="button" class="btn btn-danger" id="idClear" onclick="PriceReset()">重置</button>
                                     </div>
                                 </form>
                             </div>
