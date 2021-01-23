@@ -389,7 +389,7 @@
 
 
             }
-            alert(SoldPrice.toFixed(2));
+            alert("¥" + SoldPrice.toFixed(2) + "\n$" + (Number(SoldPrice) / Number(document.getElementById("CurrencyPrice").value)).toFixed(2));
 
         }
 
