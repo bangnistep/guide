@@ -350,10 +350,10 @@
         function TrackChangeFormat() {
             var string = document.getElementById("IDTrackInput").value;
 
-            //替换所有的换行符
+            //替换所有的换行符和空格
             string = string.replace(/\r\n/g, ",")
             string = string.replace(/\n/g, ",");
-
+            string = string.replace(" ", "");
             //替换所有的空格（中文空格、英文空格都会被替换）
             string = string.replace(/\s/g, "");
             while (string.charAt(string.length - 1) == ',') {
@@ -455,6 +455,8 @@
     <script type="text/javascript">
         toastr.options.positionClass = 'toast-center-center';
     </script>
+
+
     <link rel="stylesheet" type="text/css" href="https://www.bootcss.com/p/buttons/css/buttons.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
@@ -496,7 +498,6 @@
                     <button id="goSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="searchForResults()" class="btn btn-success">搜索</button>
                     <button type="button" id="clearSearch" style="height:40px; width:80px; font-size: 15px;vertical-align:top" onclick="clsSearch()" class="btn btn-danger">重置</button>
                 </div>
-
                 <div id="pic" class="col-xs-4 col-sm-1" style="vertical-align:top;align-content: space-around;">
                     <img id="picWeek" src="" class="img-rounded" style="width:100px; height: 95px;">
                 </div>
